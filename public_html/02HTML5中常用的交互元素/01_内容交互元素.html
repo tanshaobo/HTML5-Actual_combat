@@ -21,9 +21,42 @@
       <span>显示脚注</span>
       <details class='details1' open>本页面生成于2019-01</details>
     </div>
-    <div>
-      <span>就叫脚注吧</span>
-      <details id='details'></details>
+    <div id = 'div'>
+      <span>可以被拖动的脚注</span>
+      <details draggable='true'>这块是脚注内容，我可以通过上一行来控制它</details>
     </div>
+    <div id = "div1">
+      <span>这是带summary的脚注</span>
+      <details>
+        <summary>hello 我是summary,也就是脚注信息的头</summary>
+        没错儿，我头上的就是summary，我是最佳十一人
+      </details>
+    </div>
+    <script>
+      //这个是第一个例子
+      let div = document.querySelector('#div')
+      let span = div.querySelector('span')
+      let detail = div.querySelector('details')
+      span.onclick = () => {
+        let open = detail.getAttribute('open')
+        if (open === null) {
+          detail.setAttribute('open', '')
+        } else {
+          detail.removeAttribute('open')
+        }
+      }
+      // 这是第二个例子
+      let div1 = document.querySelector('#div1')
+      let span1 = div1.querySelector('span')
+      let detail1 = div1.querySelector('details')
+      span1.onclick = () => {
+        let open = detail1.getAttribute('open')
+        if (open === null) {
+          detail1.setAttribute('open', '')
+        } else {
+          detail1.removeAttribute('open')
+        }
+      }
+    </script>
   </body>
 </html>
