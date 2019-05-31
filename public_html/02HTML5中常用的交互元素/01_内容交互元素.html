@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body{box-shadow: 0px 0px 4px 0 #ccc}
+      div{width: 50%;padding: 10px;box-shadow: 0 0 4px #ffa631;margin: 10px;border-radius: 4px;}
+      span{font-weight: bold}
+      details.details1{overflow: hidden;height: 0;padding-left: 200px;position: relative;display: block}
+      details[open]{height: auto}
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>隐藏脚注</span>
+      <details class='details1'>本页面生成于2019-01</details>
+    </div>
+    <div>
+      <span>显示脚注</span>
+      <details class='details1' open>本页面生成于2019-01</details>
+    </div>
+    <div>
+      <span>就叫脚注吧</span>
+      <details id='details'></details>
+    </div>
+  </body>
+</html>
