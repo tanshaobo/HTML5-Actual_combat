@@ -11,25 +11,86 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       #p{word-break: break-all}
+      table{}
+      th,td{line-height: 32px;box-shadow: 0 0 4px 0 rgba(222,0,225,.3);max-width: 800px;word-break:break-all}
+      tr:nth-child(2n) td:nth-child(2n),
+      tr:nth-child(2n+1) td:nth-child(2n+1){background:rgba(0,0,0,.2)}
     </style>
   </head>
   <body>
     <div>TODO write content</div>
-    <p id = 'p'></p>
+    <h3>爱奇艺存储的cookie</h3>
+    <table id='cookie'>
+      <tbody></tbody>
+    </table>
+    <h3>爱奇艺VIP视频新窗口打开后参数</h3>
+    <table id="vip-params">
+      <thead>
+        <tr></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
     <script>
       let a = "QC005=fa6ab00e94ea5bd15ec8d89caf574f36; QC176=%7B%22state%22%3A0%2C%22ct%22%3A1559265733218%7D; Hm_lvt_53b7374a63c37483e5dd97d78d9bb36e=1559265734; QC006=m342rk2b4cxasiy5oh6roezy; QC008=1559265733.1559265733.1559265733.1; __uuid=3d02f584-a3c6-0cf0-4ada-0cee8ae0656e; nu=0; QP001=1; T00404=f6e00bc3fb04d45089d06b8ff894c4a1; QC173=0; PCAU=0; QILINPUSH=1; QP0017=100; QP0018=100; QC007=DIRECT; P00004=.1559266272.4f60e7fda8; P00001=1dOxCg9A41qqDy3uQf7m1Lm1oum3m3m2oy5UIjt6TEcaqCcIw0Uk6Ce7PeHdwqDaDKHkpaAa9; P00003=1750068581; P00010=1750068581; P01010=1559318400; P00007=1dOxCg9A41qqDy3uQf7m1Lm1oum3m3m2oy5UIjt6TEcaqCcIw0Uk6Ce7PeHdwqDaDKHkpaAa9; P00PRU=1750068581; P00002=%7B%22uid%22%3A%221750068581%22%2C%22pru%22%3A1750068581%2C%22user_name%22%3A%2218235140339%22%2C%22nickname%22%3A%22%5Cu7528%5Cu6237684fed65%22%2C%22pnickname%22%3A%22%5Cu7528%5Cu6237684fed65%22%2C%22type%22%3A11%2C%22email%22%3A%22%22%7D; P000email=18235140339; P00029=vLmm6b7JnA0cJdYczaEOv7U4U77UboDp1Z7Wo0cxJhE0VAKN0GHg8ZUXzSzU3X6WR4bxSdYFdTzqMLzdxpkVkA%3D%3D; QC160=%7B%22u%22%3A%2218235140339%22%2C%22lang%22%3A%22%22%2C%22local%22%3A%7B%22name%22%3A%22%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%22%2C%22init%22%3A%22Z%22%2C%22rcode%22%3A48%2C%22acode%22%3A%2286%22%7D%2C%22type%22%3A%22p1%22%7D; QC170=0; QC175=%7B%22upd%22%3Atrue%2C%22ct%22%3A1559266323009%7D; QC163=1; QP007=0; QP0013=0; CA0001={%22code%22:%22a6f45eb6028fcbc2A00000%22%2C%22type%22:132%2C%22detail%22:{%22fv%22:%22%22%2C%22text1%22:%22%E9%A6%96%E6%9C%88%E4%BB%856%E5%85%83%22%2C%22autoRenew%22:%22true%22%2C%22type1%22:{%22vipType%22:%229c4e4c1c18827a41%22%2C%22type%22:%225%22%2C%22fc%22:%229cb418b271421420%22}%2C%22packageAmount%22:%221%22}%2C%22passportId%22:%221750068581%22%2C%22locale%22:%22cn%22}; QC001=1; T00700=EgcIysDtIRABEgcI9L-tIRABEgcI0b-tIRABEgcIz7-tIRABEgcImMDtIRABEgcI58DtIRABEgcI77-tIRACEgcIhcDtIRABEgcI5MDtIRABEgcIg8DtIRABEgcI67-tIRABEgcI1L-tIRABEgcI5cDtIRABEgcI2MDtIRABEgcIkMDtIRABEgcI7L-tIRAB; IMS=IggQBxj_nsXnBSonCiBjYzViMDJmNzdkZmZhYWI1YjBlNmFjYTZlODFmZWIyNhABGLQBMAAwADAA; QP008=1140; QC159=%7B%22color%22%3A%22FFFFFF%22%2C%22channelConfig%22%3A1%2C%22isOpen%22%3A1%2C%22speed%22%3A13%2C%22density%22%3A30%2C%22opacity%22%3A86%2C%22isFilterColorFont%22%3A1%2C%22proofShield%22%3A0%2C%22forcedFontSize%22%3A24%2C%22isFilterImage%22%3A1%2C%22hideRoleTip%22%3A1%2C%22hadTip%22%3A1%7D; Hm_lpvt_53b7374a63c37483e5dd97d78d9bb36e=1559267976; QC010=17155133; __dfp=a0ba644c25c22245fabfa5cc9d81dbea174557c89ea933f73738b3864073c47151@1560561734787@1559265734787";
       let b = a.split("; ")
-      let c = []
-      for(let i = 0; i < b.length; i++) {
-        let d = {}
-        let v = unescape(b[i].split("=")[1])
-        if(v.indexOf(':') >0){
-          v = JSON.parse(v)
-        }
-        d[b[i].split("=")[0]] = v
-        c.push(d)
+              let cookie = document.querySelector('#cookie')
+              let cookie_tbody = cookie.querySelector('tbody')
+              console.log(cookie_tbody)
+              let c = []
+              for (let i = 0; i < b.length; i++) {
+      let d = {}
+      let k = b[i].split("=")[0]
+              let v = unescape(b[i].split("=")[1])
+              let tr = document.createElement('tr')
+              let td1 = document.createElement('td')
+              let td2 = document.createElement('td')
+              let txt1 = document.createTextNode(k)
+              let txt2 = document.createTextNode(v)
+              td1.appendChild(txt1)
+              td2.appendChild(txt2)
+              tr.appendChild(td1)
+              tr.appendChild(td2)
+              cookie.appendChild(tr)
+              if (v.indexOf(':') > 0){
+      v = JSON.parse(v)
+      }
+      d[b[i].split("=")[0]] = v
+
+              c.push(d)
       }
       console.log(c)
+    </script>
+    <script>
+              let vip = document.getElementById('vip-params')
+              let vip_head = vip.querySelector('thead')
+              let vip_body = vip.querySelector('tbody')
+              const param = (s, ss) => {
+      let m = s.split("?")[1].split('&')
+              let mm = ss.split("?")[1].split('&')
+              let a = []
+              for (let i = 0; i < m.length; i++){
+                   let k = m[i].split('=')[0]
+                   for(let j = 0;j<mm.length;j++){
+                     if(k == mm[j].split('=')[0]){
+                       let h = '<th>'+ k +'</th>'
+                       a.push(k)
+                     }
+                   }
+      }
+      console.log(a)
+      
+      }
+      
+      // 界面中的地址
+      let url0 = 'http://data.video.iqiyi.com/videos/v0/20190513/2d/6c/e78897b31ee571c5f41c0bcd3550fd26.mp4?m=v&qd_uri=dash&qd_sc=571d1571caaff73f71de924d58288018&pv=0.2&qd_tm=1559528609659&qd_p=3d94d482&qdv=1&dfp=a0ba644c25c22245fabfa5cc9d81dbea174557c89ea933f73738b3864073c47151&ssl=1&qd_vip=0&qd_src=02020031010000000000&dis_src=vrs&qd_uid=1750107577&qd_k=413c7c1b803ef066391c53e9b7bf8495&qd_ip=3d94d482'
+      //新标签页打开后地址
+      let url1 = 'https://rb323n.jomodns.com/r/bdcdncnc.inter.71edge.com/videos/v0/20190513/2d/6c/e78897b31ee571c5f41c0bcd3550fd26.mp4?key=00a91725bed378778b1c582b1d88c83d2&dis_k=e0c55a06bd427133c01d532cb98ab8fa&dis_t=1559530104&dis_dz=CNC-BeiJing&dis_st=44&src=iqiyi.com&uuid=3d94d482-5cf48a78-210&m=v&qd_uri=dash&qd_ip=3d94d482&qd_k=413c7c1b803ef066391c53e9b7bf8495&qd_p=3d94d482&qd_uid=1750107577&dfp=a0ba644c25c22245fabfa5cc9d81dbea174557c89ea933f73738b3864073c47151&ssl=1&qd_src=02020031010000000000&qd_vip=0&dis_src=vrs&pv=0.2&qd_tm=1559528609659&qdv=1&z=baiducdn_cnc&abs_speed=8309'
+      let url3 = 'https://rb565n.jomodns.com/r/bdcdncnc.inter.71edge.com/videos/v0/20190513/2d/6c/e78897b31ee571c5f41c0bcd3550fd26.mp4?key=00a91725bed378778d0e84c1779838019&dis_k=0127daca4bbe1af5460bde1b94d3b2c6&dis_t=1559529079&dis_dz=CNC-BeiJing&dis_st=44&src=iqiyi.com&uuid=3d94d482-5cf48677-208&m=v&qd_uri=dash&qd_ip=3d94d482&qd_k=413c7c1b803ef066391c53e9b7bf8495&qd_p=3d94d482&qd_uid=1750107577&dfp=a0ba644c25c22245fabfa5cc9d81dbea174557c89ea933f73738b3864073c47151&ssl=1&qd_src=02020031010000000000&qd_vip=0&dis_src=vrs&pv=0.2&qd_tm=1559528609659&qdv=1&z=baiducdn_cnc&abs_speed=10000'
+      let url2 = 'https://v-6fce170d.71edge.com/videos/v0/20190513/2d/6c/e78897b31ee571c5f41c0bcd3550fd26.mp4?key=00a91725bed378778548efc4a6324af58&dis_k=21e003606d4ee8dd0d0b97110ed96bd59&dis_t=1559529976&dis_dz=CNC-BeiJing&dis_st=44&src=iqiyi.com&uuid=3d94d482-5cf489f8-211&m=v&qd_uri=dash&qd_ip=3d94d482&qd_k=413c7c1b803ef066391c53e9b7bf8495&qd_p=3d94d482&qd_uid=1750107577&dfp=a0ba644c25c22245fabfa5cc9d81dbea174557c89ea933f73738b3864073c47151&ssl=1&qd_src=02020031010000000000&qd_vip=0&dis_src=vrs&pv=0.2&qd_tm=1559528609659&qdv=1&z=beijing3_cnc&abs_speed=8362'
+
+              let url4 = 'https://v-6fce1782.71edge.com/videos/v0/20190513/2d/6c/e78897b31ee571c5f41c0bcd3550fd26.mp4?key=00a91725bed378778239dc6491da5a401&dis_k=2f9a7e44114b8d46ddf303d2672cf01d3&dis_t=1559530171&dis_dz=CNC-BeiJing&dis_st=44&src=iqiyi.com&uuid=3d94d482-5cf48abb-1fb&m=v&qd_uri=dash&qd_ip=3d94d482&qd_k=413c7c1b803ef066391c53e9b7bf8495&qd_p=3d94d482&qd_uid=1750107577&dfp=a0ba644c25c22245fabfa5cc9d81dbea174557c89ea933f73738b3864073c47151&ssl=1&qd_src=02020031010000000000&qd_vip=0&dis_src=vrs&pv=0.2&qd_tm=1559528609659&qdv=1&z=beijing4_cnc&abs_speed=8100'
+        param(url0,url1)
+        
     </script>
   </body>
 </html>

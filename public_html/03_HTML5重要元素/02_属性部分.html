@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      div{box-shadow: 0 0 4px 0 #ffa631;padding: 10px;margin: 10px;border-radius: 4px;}
+      span{display:block;padding:4px 12px;cursor: pointer}
+    </style>
+  </head>
+  <body>
+    <div>
+      draggable属性
+      <span draggable='true'>
+        八星八箭VIP，可拖动
+      </span>
+      <span>
+        穷逼呆在原地好了
+      </span>
+    </div>
+    <div>
+      hidden属性
+      <input type="radio" onclick="show(0)" name='show' value="0">隐藏
+      <input type="radio" onclick="show(1)" name='show' value="1" checked>显示
+      <article >这个是出气筒、炮灰、靶子或者是其他总归是能让人爽一把的东西</article>
+    </div>
+    <div>
+      spellcheck属性
+      <textarea spellcheck='true'>html5</textarea>      
+      <textarea>html5</textarea>
+    </div>
+    <div>
+      contenteditable属性
+      <div contenteditable="true" id="prev">这个是可编辑的</div>      <button onclick="save()">保存</button>
+      <textarea id="next"></textarea>
+    </div>
+    <script>
+      const show = a => {
+        var art = document.querySelector('article')
+        art.hidden = a === 0 ? true : false
+      }
+      const save = () => {
+        var a1 = document.querySelector('#prev').innerText
+        document.querySelector('#next').innerText=a1
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      input[type='button']{padding: 8px 12px;font-size: 16px;background: #FFFFFF;border: transparent;border-radius: 4px;box-shadow: 0 0 4px 0 #ffa631;outline: none;}
+      input[type='button']:active{transition: all .3s;box-shadow: 0 0 4px 0 #ffa631,0 4px 2px 2px #ffa631;}
+    </style>
+  </head>
+  <body>
+    <div>
+      <p id="pTip">开始下载</p>
+      <progress value="0" max="100" id='proDownFile'></progress>
+      <input type="button" value="戳我下载" onClick='Btn_click()'>
+    </div>
+    <div>
+      <p>共有120人参与投票，明细如下：</p>
+      <p>张三：
+        <meter value='0.3' optimum="1" high="0.9" low="1" max="1" min="0"></meter>
+        <span>30%</span>
+      </p>
+      <p>李四：
+        <meter value='85' optimum="90" high="70" low="40" max="100" min="0" Id = 'meter'></meter>
+        <span>70%</span>
+      </p>
+    </div>
+    <div>
+      <h3>meter标签颜色改变规则</h3>
+      <table>
+        <tr>
+          <th>min</th>
+          <th>low</th>
+          <th>high</th>
+          <th>max</th>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>30</td>
+          <td>70</td>
+          <td>90</td>
+        </tr>
+      </table>
+      <p>
+        optimum = 20
+        <meter value='20' optimum="20" high="70" low="30" max="90" min="10"></meter>
+        <meter value='50' optimum="20" high="70" low="30" max="90" min="10"></meter>
+        <meter value='80' optimum="20" high="70" low="30" max="90" min="10"></meter>
+      </p>
+      <p>
+        optimum = 50
+        <meter value='20' optimum="50" high="70" low="30" max="90" min="10"></meter>
+        <meter value='50' optimum="50" high="70" low="30" max="90" min="10"></meter>
+        <meter value='80' optimum="50" high="70" low="30" max="90" min="10"></meter>
+      </p>
+      <p>
+        optimum = 80
+        <meter value='20' optimum="80" high="70" low="30" max="90" min="10"></meter>
+        <meter value='50' optimum="80" high="70" low="30" max="90" min="10"></meter>
+        <meter value='80' optimum="80" high="70" low="30" max="90" min="10"></meter>
+      </p>
+    </div>
+    <script>
+      let int_v = 0
+      let status = new Boolean(false)
+      let int_t
+      let objPro = document.getElementById('proDownFile')
+      let objTip = document.getElementById('pTip')
+      const Inter = () => {
+        int_v++
+        objPro.value = int_v
+        if (int_v >= objPro.max) {
+          clearInterval(int_t)
+          objTip.innerHTML = '下载完成！'
+        } else {
+          objTip.innerHTML = '正在下载' + int_v + '%'
+        }
+      }
+      const Btn_click = () => {
+        console.log(status)
+        if (status) {
+          status = false
+          int_t = setInterval(Inter, 100)
+        }
+      }
+
+    </script>
+  </body>
+</html>
