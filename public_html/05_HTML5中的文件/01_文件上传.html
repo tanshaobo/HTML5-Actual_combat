@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      div{margin: 10px;padding: 10px;box-shadow: 0 0 4px 0 #ffa631;border-radius: 4px;}
+      ul{box-shadow: 0 0 6px 0 #000}
+      li{border-bottom: 1px dashed #ffa631}
+      li span{display: inline-block;min-width: 120px;line-height: 32px;text-align: center;}
+    </style>
+  </head>
+  <body>
+    <div>
+      <fieldset>
+        <legend>
+          文件上传--单个
+        </legend>
+        <input type="file">
+      </fieldset>
+      <fieldset>
+        <legend>
+          文件上传--多个 multiple
+        </legend>
+        <input type="file" multiple>
+      </fieldset>
+      <fieldset>
+        <legend>
+          Blob获取文件类型及大小
+        </legend>
+        <input type="file" id="file0" multiple onchange="getFileInfo(this.files)">
+        <ul id="file-info"></ul>
+      </fieldset>
+      <fieldset>
+        <legend>
+          accept属性过滤
+        </legend>
+        <input type="file" accept="image/jpeg" multiple>
+      </fieldset>
+    </div>
+    <script>
+      function getFileInfo(f) {
+        var f_i = document.getElementById('file-info')
+        var str = '<li><span>名称</span><span>大小</span><span>类型</span></li>'
+        for (var i = 0; i < f.length; i++) {
+          var tempFile = f[i]
+          str += '<li><span>' + tempFile.name + '</span><span>' + tempFile.size + '</span><span>' + tempFile.type + '</span></li>'
+        }
+        f_i.innerHTML = str
+      }
+    </script>
+  </body>
+</html>

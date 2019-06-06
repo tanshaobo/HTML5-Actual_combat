@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      div{box-shadow: 0 0 4px 0 #ffa631;border-radius: 4px;margin: 10px;padding: 10px;}
+      ul li{margin: 10px;list-style-type: none}
+      input{line-height: 32px;padding: 4px 8px;border: 1px solid #efeff4;min-width: 500px;}
+    </style>
+  </head>
+  <body>
+    <div>
+      <fieldset>
+        <legend>input新增type类型</legend> 
+        <form>
+          <ul>
+            <li><label>邮箱：</label><input type="email" multiple="true" value="18235140339@163.com"><span>邮箱校验规则：检测存在@和.且不含其它特殊字符例如1@1.1可通过测试</span></li>
+            <li><label>网址：</label><input type="url" value="s://1"><span>网址校验规则：检测以字母开头接://后输入任意值即可通过测试例如(s://@)、（S://!@#$%^^）均可</span></li>
+            <li><label>数字：<input type="number" max="2050" min="1950" step="2" value="2000"></label><span>数字检测在pc端相对实用，移动端可通过更换输入方式的行为（比如中英文键盘切换即可输入非数字内容）</span></li>
+            <li><label>滑动条：<input type="range" min="0" max="255" value="101"></label><span>滑动条非常实用，如果不考虑UI样式的话</span></li>
+            <li><label>日期：</label><input type="date"><span>date类型，年月日，非常实用，包含日期有效性检测</span></li>
+            <li><label>日期：</label><input type="time"><span>time类型，时分，非常实用</span></li>
+            <li><label>日期：</label><input type="month"><span>month类型，年月，非常实用</span></li>
+            <li><label>日期：</label><input type="week"><span>week类型，年周，非常实用</span></li>
+            <li><label>日期：</label><input type="datetime-local"><span>datetime-local类型,年月日时分合集，非常实用</span></li>
+            <li><label>搜索：</label><input type="search">search类型 比text类型多个X,自动清除功能？</li>
+            <li><label>提交：</label><input type="submit" value="提交"></li>
+          </ul>
+        </form>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>datalist元素 可包含文本或者option，辅助文本框输入</legend>
+        <form>
+          <input list="op"><br>
+          <datalist id="op">
+            <option value="1">
+            <option value="2">
+            <option value="3">
+            <option value="4">
+          </datalist>
+        </form>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>output元素</legend>
+        <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+          <input type="range" name="b" value="50" /> +
+          <input type="number" name="a" value="10" /> =
+          <output name="result"></output>
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>
