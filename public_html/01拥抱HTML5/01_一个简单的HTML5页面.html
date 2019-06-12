@@ -4,49 +4,31 @@
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      body{font-size: 0;margin: 0}
-      header,
-      nav,
-      article,
-      footer{border:1px solid #666;padding: 5px;font-size: 16px}
-      header{width: 500px}
-      nav{display: inline-block;width: 60px;height: 100px}
-      article{display: inline-block;width: 428px;height: 100px}
-      footer{width: 500px}
-      tanshaobo{display: block;box-shadow: 4px 4px 8px 0 rgba(0,0,0,.5),-4px -4px 8px 0 rgba(255,0,0,.5);min-height: 60px;font-size: 24px;padding: 10px;margin: 20px;}
-    </style>
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
     <script>
       document.createElement('tanshaobo')
     </script> 
   </head>
   <body>
-    <canvas id="canvas" width="300" height="200" style="border: 2px solid #ccc;background: #eee">
-      该浏览器不支持HTML5画布标记！
-    </canvas>
-    <header>导航</header>
-    <nav>菜单</nav>
-    <article>内容</article>
-    <footer>底部说明</footer>
-    <header>
-      <article>
-        <h1>内容一</h1>
-      </article>
-    </header>
-    <header>
-      <article>
-        <h1>内容二</h1>
-      </article>
-    </header>
-    <article>
-      <header>
-        <p>日期：2011-03-01</p>
-        <h1><a>今天天气不错啊</a></h1>
-        <p>蓝蓝的天空中漂着几朵白云</p>
-      </header>
-    </article>
+    <div>
+      <fieldset>
+        <legend>canvas</legend>
+        <canvas id="canvas" width="300" height="200" style="border: 2px solid #ccc;background: #eee">
+          该浏览器不支持HTML5画布标记！
+        </canvas>
+        </fieldest>
+    </div>
+    <div style="font-size:0;">
+      <fieldest>
+        <legend>这个就是一个html5的语义化标签堆出来的界面</legend>
+        <header>导航----包裹在&lt;header&gt;中</header>
+        <nav>菜单----虽然有个&lt;menu&gt;,不过用&lt;nav&gt;好像也可以</nav>
+        <article>内容---&lt;article&gt;挺符合内容这个意思，&lt;section&gt;也不错？</article>
+        <footer>底部说明--跟&lt;header&gt;一样没什么新意的&lt;footer&gt;中</footer>
+      </fieldest>
+    </div>
   <tanshaobo>
-    这个标签是以我的名字命名的，所有看我给它加上尊贵的标志
+    这个标签是以我的名字命名的，没错儿，就是 包裹在&lt;tanshaobo&gt;中,所以看我给它加上尊贵的标志。总之，鼓掌欢呼吧，唱个欢乐颂也可以！
   </tanshaobo>
-  </body>
+</body>
 </html>

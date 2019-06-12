@@ -1,0 +1,22 @@
+body{margin: 0;padding: 0;}
+header,
+nav,
+article,
+footer{border:1px solid #666;padding: 5px;font-size: 16px}
+header{width: 500px}
+nav{display: inline-block;width: 60px;height: 200px}
+article{display: inline-block;width: 428px;height: 200px;vertical-align: top}
+footer{width: 500px}
+tanshaobo{display: block;box-shadow: 4px 4px 8px 0 rgba(0,0,0,.5),-4px -4px 8px 0 rgba(255,0,0,.5);min-height: 60px;font-size: 24px;padding: 10px;margin: 20px;}
+menu{padding: 10px;margin: 10px;box-shadow: 0 0 8px 0 #ffa631;text-align: center;font-size: 0}
+menu li{display: inline-block;line-height: 60px;list-style-type: none;margin: 1%;padding: 5px;width: 20%;border: 1px solid rgba(230,255,0, .8)}
+menu li:hover{box-shadow: 0 0 16px 0 rgba(230,255,0, .8);transform: scale3d(1.05,1.05,1.05) translate3d(0,-5px,0);transition: all .3s}
+menu li span{display: inline-block;font-size: 16px;text-shadow: 0 0 3px #000}
+menu li:hover span{transform: rotate(360deg);transition:all .3s}
+command{width:120px;height: 40px;padding:8px 12px;line-height: 24px;font-size: 16px;border-radius:4px;}
+input[type='button']{padding: 8px 12px;font-size: 16px;background: #FFFFFF;border: transparent;border-radius: 4px;box-shadow: 0 0 4px 0 #ffa631;outline: none;}
+input[type='button']:active{transition: all .3s;box-shadow: 0 0 4px 0 #ffa631,0 4px 2px 2px #ffa631;}
+div{margin: 10px;padding: 10px;box-shadow: 0 0 4px 0 #ffa631;border-radius: 4px;}
+ul{box-shadow: 0 0 6px 0 #000}
+li{border-bottom: 1px dashed #ffa631}
+li span{display: inline-block;min-width: 120px;line-height: 32px;text-align: center;}

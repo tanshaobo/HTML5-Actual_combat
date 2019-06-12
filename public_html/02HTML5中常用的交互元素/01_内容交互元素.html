@@ -4,34 +4,55 @@
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
     <style>
-      body{box-shadow: 0px 0px 4px 0 #ccc}
-      div{width: 50%;padding: 10px;box-shadow: 0 0 4px #ffa631;margin: 10px;border-radius: 4px;}
-      span{font-weight: bold}
+      span{font-weight: bold;}
       details.details1{overflow: hidden;height: 0;padding-left: 200px;position: relative;display: block}
       details[open]{height: auto}
     </style>
   </head>
   <body>
     <div>
-      <span>隐藏脚注</span>
-      <details class='details1'>本页面生成于2019-01</details>
+      <fieldset>
+        <legend>
+          隐藏脚注
+        </legend>
+        <details class='details1'>本页面生成于2019-01</details>
+        <span>我上面是有个脚注的，不过你看不到，啥也别说，啥也别问</span>
+      </fieldset>
     </div>
     <div>
-      <span>显示脚注</span>
-      <details class='details1' open>本页面生成于2019-01</details>
+      <fieldset>
+        <legend>
+          <span>显示脚注</span>
+        </legend>
+        这行显示脚注了，对，就是下面那个玩意。很无聊是吧，有时候看到真相，是不是觉得还是自己意淫比较得劲？
+        <details class='details1' open>本页面生成于2019-01</details>
+      </fieldset>
     </div>
     <div id = 'div'>
-      <span>可以被拖动的脚注</span>
-      <details draggable='true'>这块是脚注内容，我可以通过上一行来控制它</details>
+      <fieldset>
+        <legend>
+           <span>可以被拖动的脚注</span>
+        </legend>
+        挺到这一行还在继续看的，恭喜你，你的耐心已经可以摸到门槛了，记住这个幸福的时刻，大概这会是你的职业生涯最幸福的时候，以后你会被花式扎心的。
+        言归正传，这个拖动就是个表象，没js的话，自己看着就行了
+        <details draggable='true'>这块是脚注内容，我可以通过上一行来控制它</details>
+      </fieldset>
     </div>
     <div id = "div1">
-      <span>这是带summary的脚注</span>
-      <details>
+      <fieldset>
+        <legend>
+      <span>这是带summary的脚注</span>    
+        </legend>
+        不做说明，看不懂的回小学补语文去，实在不懂的话，我认识一个学前教育班
+        <details>
         <summary>hello 我是summary,也就是脚注信息的头</summary>
         没错儿，我头上的就是summary，我是最佳十一人
       </details>
-    </div>
+      </fieldset>
+      
+      </div>
     <script>
       //这个是第一个例子
       let div = document.querySelector('#div')
