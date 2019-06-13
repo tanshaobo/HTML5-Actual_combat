@@ -7,42 +7,64 @@
     <link href="../css/common.css" rel="stylesheet" type="text/css"/>
     <style>
       span{display:block;padding:4px 12px;cursor: pointer}
+      article{display:inherit}
     </style>
   </head>
   <body>
+    <a href="../index.html" class = 'go-index'>返回目录</a>
     <div>
-      draggable属性
-      <span draggable='true'>
-        这是尊贵的八星八箭VIP，可拖动
-      </span>
-      <span>
-        穷逼呆在原地好了，要啥自行车
-      </span>
+      <fieldset>
+        <legend>
+          draggable属性  拖动   
+        </legend>
+        <span draggable='true'>
+          这是尊贵的八星八箭VIP，可拖动
+        </span>
+        <span>
+          穷逼呆在原地好了，要啥自行车
+        </span>
+      </fieldset>
     </div>
     <div>
-      hidden属性
-      <input type="radio" onclick="show(0)" name='show' value="0">隐藏
-      <input type="radio" onclick="show(1)" name='show' value="1" checked>显示
-      <article >这个是出气筒、炮灰、靶子或者是其他总归是能让人爽一把的东西</article>
+      <fieldset>
+        <legend>
+          hidden属性          
+        </legend>
+        <input type="radio" onclick="show(0)" name='show' value="0">隐藏
+        <input type="radio" onclick="show(1)" name='show' value="1" checked>显示
+        <article hidden='true'>这个是出气筒、炮灰、靶子或者是其他总归是能让人爽一把的东西,hidden这个属性除非设置到专有标签上，否则任意一个display都可以让它凉凉</article>
+      </fieldset>
     </div>
     <div>
-      spellcheck属性
-      <textarea spellcheck='true'>html5</textarea>      
-      <textarea>html5</textarea>
+      <fieldset>
+        <legend>
+          spellcheck属性    
+        </legend>
+        检查拼写错误，实用性，呵呵
+        <textarea spellcheck='true'>html5</textarea>      
+        <textarea>html5</textarea>
+      </fieldset>
     </div>
     <div>
-      contenteditable属性
-      <div contenteditable="true" id="prev">这个是可编辑的</div>      <button onclick="save()">保存</button>
-      <textarea id="next"></textarea>
+      <fieldset>
+        <legend>
+          contenteditable属性 万物皆为文本框   
+        </legend>
+        <div contenteditable="true" id="prev">这是一个div,它是可编辑的</div>      <button onclick="save()">保存</button>
+        <textarea id="next"></textarea>
+      </fieldset>
     </div>
     <script>
       const show = a => {
+        console.log(1)
         var art = document.querySelector('article')
+        console.log(art)
         art.hidden = a === 0 ? true : false
+        console.log(art.hidden)
       }
       const save = () => {
         var a1 = document.querySelector('#prev').innerText
-        document.querySelector('#next').innerText=a1
+        document.querySelector('#next').innerText = a1
       }
     </script>
   </body>

@@ -1,46 +1,77 @@
 <!DOCTYPE html>
 <html manifest="http://www.baidu.com">
   <head>
-    <base href="http://www.baidu.com" target='_blank'>
+    <base href="localhost" target='_blank'>
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      div{box-shadow: 0 0 4px 0 #ffa631;margin: 10px;padding: 10px;border-radius: 4px;}
-    </style>
-    <script>
-      const btn_click = () => {
-        alert('真乖')
-      }
-    </script>
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
     <noscript>什么垃圾浏览器，连js都不支持，原地爆炸算了</noscript>
   </head>
   <body>
-    <div>&lt;html&gt;新增属性manifest，值为url，该url执行文档缓存信息的地址</div>
-    <div><a href="index.html">这是用来测试&lt;base&gt的</a></div>
-    <div>&lt;noscript&gt; 检测script是否被执行</div>
-    <div><button onclick="btn_click()">来呀，点老子啊</button></div>
+    <a href="../index.html" class = go-index'>返回目录</a>
     <div>
-      &lt;section&gt;标记文档中的区域段或段落，以后页面主体需要拆分结构的时候可以用用
-      <section draggable="true" cite='http://www.baidu,com'>
-        <h1>张国荣</h1>
-        <p>不知道写啥，写个倩女离魂总不错吧</p>
-      </section>
+      <fieldset>
+        <legend>
+          &lt;html&gt;新增属性manifest
+        </legend>
+        &lt;html&gt;新增属性manifest，值为url，该url执行文档缓存信息的地址
+      </fieldset>
     </div>
     <div>
-      &lt;nav&gt;这个就不解释了，以后导航专用
-      <nav>
-        <a href='javascript:alert("清除成功")'>首页</a>
-        <a href='javascript:alert("您反馈的内容已接收")'>介绍</a>        
-        <a href='javascript:console.log("每点我一下，控制台就会输出一条信息")'>关于</a>
-      </nav>
+      <fieldset>
+        <legend>
+          &lt;base&gt;
+        </legend>
+        <a href="index.html">这是用来测试&lt;base&gt;的</a>
+        页面中设置该标签并附上base链接，页面中相对路径是以此为参考的,比如将base的url改为http://www.baidu.com后，以相对路径引进来的css文件，以及返回目录的超链接完全没效果,同时所有包含target属性的元素，都会受到base中target限制
+      </fieldset>
     </div>
     <div>
-      <p>
+      <fieldset>
+        <legend>
+          &lt;noscript&gt;
+        </legend>
+        检测浏览器是否支持js,不支持的话会输出当前标签内部的内容
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          &lt;section&gt;    
+        </legend>
+        标记文档中的区域段或段落，以后页面主体需要拆分结构的时候可以用用
+        <section draggable="true" cite='http://www.baidu,com'>
+          <h1>张国荣</h1>
+          <p>不知道写啥，写个倩女离魂总不错吧</p>
+        </section>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          &lt;nav&gt;
+        </legend>
+        这个就不解释了，以后导航专用
+        <nav>
+          <a href='javascript:alert("清除成功")'>清除缓存</a>
+          <a href='javascript:alert("您反馈的内容已接收")'>反馈</a>        
+          <a href='javascript:console.log("每点我一下，控制台就会输出一条信息")'>关于</a>
+        </nav>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          &lt;mark&gt; && &lt;cite&gt;
+        </legend>
+        新的标记元素mark了解下，打包附送一个引入注释元素cite
+        <p>
         三分开霸业，万里宅神洲
         <mark>mark</mark>一下
         引自《<cite>赤城</cite>》
       </p>
+      </fieldset>
     </div>
   </body>
 </html>

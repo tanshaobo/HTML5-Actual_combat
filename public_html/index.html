@@ -4,12 +4,77 @@
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/common.css" rel="stylesheet" type="text/css"/>
     <style>
       h1{text-align: center;}
+      .table{width: 90%;max-width: 1200px;margin: auto;box-shadow: 0 0 4px 0 rgba(0,0,0,.6)}
+      .table section{ box-shadow: 0 0 2px 0 #666;margin: 10px;padding: 10px;}
+      .table h3{line-height: 48px;width:100%;box-shadow: 4px 0 2px 0 rgba(255,255,255,1), -4px 0 2px 0 rgba(255,255,255,1),0 2px 2px 0 rgba(0,0,0,.6);margin:0;text-align: center;}
+      .table p{margin: 10px;}
+      .table span{display: inline-block;min-width: 22%;line-height: 40px;height: 40px;margin: 10px 1%;text-align: center;box-shadow: 0 0 2px 0 #000}
+      .table a{display: block;text-decoration: none;color:#333333}
+      .table a:hover,.table a:focus{color:#ffa631}
     </style>
   </head>
   <body>
-    <h1>HTML5新增标签列表</h1>
-    
+    <h1>HTML5实战</h1>
+    <div class='table'></div>
+    <script>
+      var J = []
+      J = [
+        {
+          name: '第一章 拥抱HTML5',
+          children: [
+            {name: '01_一个简单的HTML5页面', link: '01拥抱HTML5/01_一个简单的HTML5页面.html'}
+          ]
+        },
+        {
+          name: '第二章 HTML5中常用的交互元素',
+          children: [
+            {name: '01_内容交互元素', link: '02HTML5中常用的交互元素/01_内容交互元素.html'},
+            {name: '02_菜单交互元素', link: '02HTML5中常用的交互元素/02_菜单交互元素.html'},
+            {name: '03_状态交互元素', link: '02HTML5中常用的交互元素/03状态交互元素.html'}
+          ]
+        },
+        {
+          name: '第三章 HTML5重要元素',
+          children: [
+            {name: '01_元素部分', link: '03_HTML5重要元素/01元素部分.html'},
+            {name: '02_属性部分', link: '03_HTML5重要元素/02_属性部分.html'}
+          ]
+        },
+        {
+          name: '第四章 HTML5中的表单',
+          children: [
+            {name: '01_表单元素', link: '04HTML5中的表单/01_表单元素.html'},
+            {name: '02_新增属性', link: '04HTML5中的表单/02_新增属性.html'}
+          ]
+        },
+        {
+          name: '第五章 HTML5中的文件',
+          children: [
+            {name: '01_选择文件', link: '05_HTML5中的文件/01_文件上传.html'},
+            {name: '02_fileReader', link: '05_HTML5中的文件/02_fileReader.html'}
+          ]
+        }
+      ]
+      setIndex(J)
+      function setIndex(arr) {
+        var T = document.querySelector('.table');
+        var str = '';
+        for (var i = 0; i < arr.length; i++) {
+          var h = '<h3>' + J[i].name + '</h3>'
+          var s = ''
+          for (var j = 0; j < J[i].children.length; j++) {
+            s += '<span ><a href = "' + J[i].children[j].link + '">' + J[i].children[j].name + '</a></span>'
+          }
+          s = '<p>' + s + '</p>'
+          str += '<section>' + h + s + '</section>'
+        }
+        T.innerHTML = str
+      }
+
+
+    </script>
   </body>
 </html>

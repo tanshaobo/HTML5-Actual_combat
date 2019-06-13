@@ -1,16 +1,94 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
   <head>
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <div>TODO write content</div>
+    <a href="../index.html" class = 'go-index'>返回目录</a>
+    <div>
+      <fieldset>
+        <legend>
+          readAsDataURL 这个获取文件的URL
+        </legend>
+        <input type="file" onchange='prevImg(this.files)'>
+        <ul class='upload'></ul>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          readAsText   这个获取txt文件的内容
+        </legend>
+        <input type="file" onchange='prevText(this.files)'>
+        <ul class='upload1'></ul>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          测试一下文件读取过程
+        </legend>
+        正常读取时事件执行顺序<br>
+        onloadstart(开始) -- onprogress(读取中) -- onload(成功) -- onloadend(结束)<br>
+        非正常的两个 onabort(终止) onerror(失败)<br>
+        测试结果看console<br>
+        <input type="file" onchange='testorder(this.files)'>
+      </fieldset>
+    </div>
+    <script>
+      function prevImg(f) {
+        if (typeof FileReader === 'undefined') {
+          alert('连FileReader都不支持的浏览器还留着过年吗')
+        }
+        var s = ''
+        var r = new FileReader()
+        r.readAsDataURL(f[0])
+        r.onload = function (e) {
+          s += '<li><img src="' + e.target.result + '"></li>'
+          document.querySelector('.upload').innerHTML = s
+        }
+      }
+      function prevText(f) {
+        if (typeof FileReader === 'undefined') {
+          alert('不说了')
+        }
+        var s = ''
+        var r = new FileReader()
+        r.readAsText(f[0])
+        r.onload = function (e) {
+          console.log(e)
+          s += '<li><span>' + e.target.result + '</span></li>'
+          document.querySelector('.upload1').innerHTML = s
+        }
+      }
+      function testorder(f) {
+        if (typeof FileReader === 'undefined') {
+          alert()
+        }
+        var r = new FileReader()
+        r.readAsBinaryString(f[0])
+        r.onloadstart = () => {
+          console.log('开始读取数据...')
+        }
+        r.onprogress = () => {
+          console.log('读取中...')
+        }
+        r.onabort = () => {
+          console.log('读取终止')
+        }
+        r.onerror = () => {
+          console.log('读取失败')
+        }
+        r.onload = () => {
+          console.log('读取成功')
+        }
+        r.onloadend = () => {
+          console.log('读取结束')
+        }
+      }
+    </script>
   </body>
 </html>
