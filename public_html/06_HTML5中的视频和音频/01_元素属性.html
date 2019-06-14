@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <a href="../index.html" class = 'go-index'>返回目录</a>
+    <div>
+      <fieldset>
+        <legend>
+          默认属性controls 
+        </legend>
+        <video id="video"
+               controls
+               muted
+               autoplay
+               poster="../image/img1.jpg" 
+               onError="v_Error(this)">
+          <source src="../media/one.mp4" type="video/mp4">
+          Your browser does not support the <code>video</code> tag.
+        </video>
+        <div style="display:inline-block">
+          <h3>video控制</h3>
+          宽度：<input type="range" min="200" max="300" onchange="c_width(this)"><br>
+          展示图：<input type="button" onclick="c_cover()" value="改变展示图片"><br>
+        </div>
+        <audio id="audio" controls autoplay muted>
+          <source src="../media/only.mp3" type="audio/mpeg">
+          Your browser does not support the <code>audio</code> tag.
+        </audio>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          autoplay 与muted
+        </legend>
+        autoplay 自动播放，但是需要muted配合。在浏览器中，设置autoplay后，视频及音频并不会自动播放，只有在用户主动触发后才会开始；但是有了muted,允许在静音状态下自动播放音视频
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          poster 视频播放前设置图片
+        </legend>
+        poster未设置时，video加载完毕未开始播放的显示图片默认是视频的第一帧，设置后可以保证在加载前，展示的是设置图片
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          持续性属性 netWorkState、error
+        </legend>
+        netWorkState代表网络状态 返回四个值 依次为 0--加载初始化 1--加载完成  2--加载中 3--加载出错<br>
+        error代表异常  返回四个值 依次为 1--获取过程中异常被中止 2--获取资源出错 3--解码出错 4--没有找到可播放格式<br>
+      </fieldset>
+    </div>
+    <script>
+      var v = document.querySelector('#video')
+      var s = document.querySelector('#status')
+      const c_width = e => {
+        v.setAttribute('width', e.value)
+      }
+      const c_cover = () => {
+        var arr = ['../image/img1.jpg', '../image/img2.jpg', '../image/img3.jpg', '../image/img4.jpg']
+        v.setAttribute('poster', arr[Math.floor(Math.random() * arr.length)])
+      }
+      const s_Progress = (n) => {
+        var arr = ['正在初始化...', '加载成功，等待播放', '加载中，请稍后', '加载出错，自求多福']
+        switch (n) {
+          case 0:
+            console.log(arr[0])
+            return arr[0]
+            break
+          case 1:
+            console.log(arr[1])
+            return arr[1]
+            break
+          case 2:
+            console.log(arr[2])
+            return arr[2]
+            break
+          case 3:
+            console.log(arr[3])
+            return arr[3]
+            break
+        }
+      }
+      const v_Progress = e => {
+        var i = e.netWorkState
+        s_Progress(i)
+      }
+      const s_Error = (n) => {
+        var arr = ['加载异常,用户请求中止', '加载中止，网络错误', '加载完成，解码错误', '没有找到支持的播放格式']
+        switch (n) {
+          case 1:
+            console.log(arr[0])
+            return arr[0]
+            break
+          case 2:
+            console.log(arr[1])
+            return arr[1]
+            break
+          case 3:
+            console.log(arr[2])
+            return arr[2]
+            break
+          case 4:
+            console.log(arr[3])
+            return arr[3]
+            break
+        }
+      }
+      const v_Error = e => {
+        var i = e.netWorkState
+        s_Progress(i)
+      }
+    </script>
+  </body>
+</html>

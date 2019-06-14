@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <a href="../index.html" class = 'go-index'>返回目录</a>
+    <div>
+      <fieldset>
+        <legend>
+          常用控制方法play()、pause() 
+        </legend>
+        <button onclick="v_play()">播放</button>
+        <button onclick="v_pause()">暂停</button>
+        <video width="320" height="240" id="v">
+          <source src="../media/one.mp4" type="video/mp4">
+          Your browser does not support the <code>video</code> tag.
+        </video>
+      </fieldset>
+    </div>
+    <script>
+      var v = document.querySelector('#v')
+      const v_play = () => {
+        v.play()
+      }
+      const v_pause = () => {
+        v.pause()
+      }
+    </script>
+  </body>
+</html>

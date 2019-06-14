@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/common.css" rel="stylesheet" type="text/css"/>
+    <style>
+      #upload{min-height: 200px;}
+    </style>
   </head>
   <body>
     <a href="../index.html" class = 'go-index'>返回目录</a>
@@ -36,6 +39,14 @@
         非正常的两个 onabort(终止) onerror(失败)<br>
         测试结果看console<br>
         <input type="file" onchange='testorder(this.files)'>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          DataTransfer拖放
+        </legend>
+        <ul id="upload" ondrop="dropImg(event)" ondragenter="return false" ondragover="return false"></ul>
       </fieldset>
     </div>
     <script>
@@ -88,6 +99,26 @@
         r.onloadend = () => {
           console.log('读取结束')
         }
+      }
+      function dropImg(e) {
+        moveFile(e.dataTransfer.files)
+        e.stopPropagation()
+        e.preventDefault()
+      }
+      function moveFile(f) {
+        if (typeof FileReader === 'undefined') {
+          alert()
+        }
+        var r = new FileReader()
+        r.readAsDataURL(f[0])
+        r.onload = (function (f1) {
+          return function (e) {
+            var l = document.createElement('li');
+            l.innerHTML = '<img src="' + e.target.result + '" title="' + f1.name + '">'
+            var u = document.querySelector('#upload') 
+            u.insertBefore(l,null)
+          }
+        })(f[0])
       }
     </script>
   </body>
