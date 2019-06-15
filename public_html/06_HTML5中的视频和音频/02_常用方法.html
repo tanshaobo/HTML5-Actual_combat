@@ -11,23 +11,90 @@
     <div>
       <fieldset>
         <legend>
-          常用控制方法play()、pause() 
+          常用控制方法play()、pause()、canPlayType()
         </legend>
-        <button onclick="v_play()">播放</button>
-        <button onclick="v_pause()">暂停</button>
+        <button onclick="v_load()">加载</button>
+        <button onclick="v_play(this)" id="p">暂停</button>
+        <button onclick="v_test()">检测</button>
         <video width="320" height="240" id="v">
           <source src="../media/one.mp4" type="video/mp4">
           Your browser does not support the <code>video</code> tag.
         </video>
       </fieldset>
     </div>
+    <div>
+      <fieldset>
+        <legend>
+          播放事件
+        </legend>
+        <video width="320" height="240" id="v1" controls
+               onmouseout="v_move(0)"
+               onmouseover="v_move(1)"
+               onPlaying="v_playing()"
+               onpause="v_pause()"
+               onLoadState="v_loadstart()"
+               onEnded="v_ended()">
+          <source src="../media/one.mp4" type="video/mp4">
+          Your browser does not support the <code>video</code> tag.
+        </video>
+        <span id="tip"></span>
+      </fieldset>
+    </div>
     <script>
       var v = document.querySelector('#v')
-      const v_play = () => {
-        v.play()
+      var p = document.querySelector('#p')
+      var v1 = document.querySelector('#v1')
+      var t = document.querySelector('#tip')
+      const v_load = () => {
+        v.load()
+        p.innerText = '播放'
+      }
+      const v_play = (e) => {
+        console.log(e)
+        if (e.innerText === '播放') {
+          v.play();
+          p.innerText = '暂停'
+        } else {
+          v.pause();
+          p.innerText = '播放'
+        }
+      }
+      var l = 0, m = 0, n = 0;
+      const v_test = () => {
+        var s = ''
+        var t = ['audio/mpeg', 'audio/mov', 'audio/mp4;codecs="mp4a.40.2"', 'audio/ogg;codecs="vorbis"', 'audio/webm;codecs="vp8,voribs"', 'audio/wav;codecs="1"']
+        for (var i = 0; i < t.length; i++) {
+          switch (v.canPlayType(t[i])) {
+            case "":
+              ++l;
+              break;
+            case "maybe":
+              ++m;
+              break;
+            case "probably":
+              ++n;
+              break;
+          }
+        }
+        s += '空字符:' + l
+        s += 'maybe:' + m
+        s += 'probably:' + n
+        console.log(s)
+      }
+      const v_move = (data) => {
+        t.style.display = data ? 'block' : 'none'
+      }
+      const v_loadstart = () => {
+        t.innerText = '开始加载'
+      }
+      const v_playing = () => {
+        t.innerText = '正在播放'
       }
       const v_pause = () => {
-        v.pause()
+        t.innerText = '已经暂停'
+      }
+      const v_ended = () => {
+        t.innerText = '播放完毕'
       }
     </script>
   </body>
