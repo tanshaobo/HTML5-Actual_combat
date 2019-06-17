@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <a href="../index.html" class = 'go-index'>返回目录</a>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick = 'C1()'>原始矩形</button>
+        </legend>
+        <canvas id = 'c1' width='280px' height="180px" ></canvas>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick='C2()'>带边框的矩形</button>
+        </legend>
+        <canvas id='c2' width='280px' height='180px'></canvas>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick="C3()">渐变</button>
+        </legend>
+        <canvas id="c3" width="280px" height='180px'></canvas>
+      </fieldset>
+    </div>
+    <script>
+      var $ = i => {
+        return document.querySelector('#' + i)
+      }
+      const C1 = () => {
+        var id = $('c1')
+        var ctx = id.getContext('2d')
+        ctx.fillStyle = '#ffa631'
+        ctx.fillRect(20, 20, 90, 90)
+      }
+      const C2 = () => {
+        var id = $('c2')
+        var ctx = id.getContext('2d')
+//        设置边框
+        ctx.strokeStyle = '#ffa631';
+        ctx.strokeRect(30, 30, 150, 80);
+        // 设置背景
+        ctx.fillStyle = '#efff12';
+        ctx.fillRect(30, 30, 150, 80);
+      }
+      const C3 = () => {
+        var id = $('c3')
+        var ctx = id.getContext('2d')
+        ctx.createLinearGradient(30, 30, 180, 80)
+        ctx.addColorStop(0, '#F00')
+        ctx.addColorStop(.5, '#0F0')
+        ctx.addColorStop(1, '#00F')
+      }
+    </script>
+  </body>
+</html>

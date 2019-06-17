@@ -23,3 +23,4 @@ li{border-bottom: 1px dashed #ffa631}
 li span{display: inline-block;min-width: 120px;line-height: 32px;text-align: center;}
 a.go-index{text-decoration: none;color:blueviolet;display: inline-block;margin: 10px;}
 input{line-height: 32px;padding: 4px 8px;border: 1px solid #efeff4;min-width: 500px;}
+canvas{border:1px solid #142857}
