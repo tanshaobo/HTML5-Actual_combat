@@ -11,39 +11,73 @@
     <div>
       <fieldset>
         <legend>
-          <button onclick = 'C1()'>原始矩形</button>
+          <button onclick = 'R1()'>原始矩形</button>
         </legend>
-        <canvas id = 'c1' width='280px' height="180px" ></canvas>
+        <canvas id = 'r1' width='280px' height="180px" ></canvas>
       </fieldset>
     </div>
     <div>
       <fieldset>
         <legend>
-          <button onclick='C2()'>带边框的矩形</button>
+          <button onclick='R2()'>带边框的矩形</button>
         </legend>
-        <canvas id='c2' width='280px' height='180px'></canvas>
+        <canvas id='R2' width='280px' height='180px'></canvas>
       </fieldset>
     </div>
     <div>
       <fieldset>
         <legend>
-          <button onclick="C3()">渐变</button>
+          <button onclick="R3()">渐变</button>
         </legend>
-        <canvas id="c3" width="280px" height='180px'></canvas>
+        <canvas id="r3" width="280px" height='180px'></canvas>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick="P1()">路径</button>
+        </legend>
+        <canvas id = 'p1' width="280px" height="180px"></canvas>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick='A1()'>
+            圆
+          </button>
+        </legend>
+        <canvas id='a1' width='1000px' height="180px"></canvas>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick="A2()">渐变圆</button>
+        </legend>
+        <canvas id='a2' width="300px" height="300px"></canvas>
+        <ul style="display: inline-block;vertical-align: top;padding: 0 20px;text-align: justify">
+          <li>x1<input id='x1' value=150 onchange="A2()"><button onclick='control(this, "i")'>+++++</button><button onclick='control(this, "d")'>-----</button></li>
+          <li>y1<input id='y1' value=150 onchange="A2()"><button onclick='control(this, "i")'>+++++</button><button onclick='control(this, "d")'>-----</button></li>
+          <li>r1<input id='r_1' value=0 onchange="A2()"><button onclick='control(this, "i")'>+++++</button><button onclick='control(this, "d")'>-----</button></li>
+          <li>x2<input id='x2' value=150 onchange="A2()"><button onclick='control(this, "i")'>+++++</button><button onclick='control(this, "d")'>-----</button></li>
+          <li>y2<input id='y2' value=150 onchange="A2()"><button onclick='control(this, "i")'>+++++</button><button onclick='control(this, "d")'>-----</button></li>
+          <li>r2<input id='r_2' value=75 onchange="A2()"><button onclick='control(this, "i")'>+++++</button><button onclick='control(this, "d")'>-----</button></li>
+        </ul>
       </fieldset>
     </div>
     <script>
       var $ = i => {
         return document.querySelector('#' + i)
       }
-      const C1 = () => {
-        var id = $('c1')
+      const R1 = () => {
+        var id = $('r1')
         var ctx = id.getContext('2d')
         ctx.fillStyle = '#ffa631'
         ctx.fillRect(20, 20, 90, 90)
       }
-      const C2 = () => {
-        var id = $('c2')
+      const R2 = () => {
+        var id = $('r2')
         var ctx = id.getContext('2d')
 //        设置边框
         ctx.strokeStyle = '#ffa631';
@@ -52,13 +86,128 @@
         ctx.fillStyle = '#efff12';
         ctx.fillRect(30, 30, 150, 80);
       }
-      const C3 = () => {
-        var id = $('c3')
+      const R3 = () => {
+        var id = $('r3')
         var ctx = id.getContext('2d')
-        ctx.createLinearGradient(30, 30, 180, 80)
-        ctx.addColorStop(0, '#F00')
-        ctx.addColorStop(.5, '#0F0')
-        ctx.addColorStop(1, '#00F')
+        var g1 = ctx.createLinearGradient(30, 30, 180, 30)
+        g1.addColorStop(0, '#F00')
+        g1.addColorStop(1, '#00F')
+        ctx.fillStyle = g1
+        ctx.fillRect(30, 30, 180, 120)
+        var g2 = ctx.createLinearGradient(50, 50, 50, 180)
+        g2.addColorStop(0, '#FF0')
+        g2.addColorStop(1, '#0FF')
+        ctx.fillStyle = g2
+        ctx.fillRect(50, 50, 160, 100)
+        var g3 = ctx.createLinearGradient(70, 70, 140, 140)
+        g3.addColorStop(0, '#F0F')
+        g3.addColorStop(1, '#0F0')
+        ctx.fillStyle = g3
+        ctx.fillRect(70, 70, 140, 80)
+      }
+      const P1 = () => {
+        var id = $('p1')
+        var ctx = id.getContext('2d')
+        ctx.beginPath()
+        ctx.lineWidth = 2
+        ctx.moveTo(20, 20)
+        ctx.lineTo(180, 30)
+        ctx.lineTo(20, 120)
+        ctx.closePath()
+        ctx.stroke()
+      }
+      const A1 = () => {
+        var id = $('a1')
+        var ctx = id.getContext('2d')
+        ctx.beginPath()
+        ctx.arc(90, 90, 50, 0, Math.PI * 2, true)
+        ctx.closePath()
+        ctx.lineWidth = 2
+        ctx.strokeStyle = '#457896'
+        ctx.stroke()
+        ctx.fillStyle = "rgba(0,0,0,.2)"
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.arc(200, 90, 50, -Math.PI * 0.5, Math.PI, false)
+        ctx.closePath()
+        ctx.lineWidth = 3
+        ctx.strokeStyle = '#985214'
+        ctx.stroke()
+        ctx.fillStyle = 'rgba(255,233,0,.3)'
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.moveTo(320, 90)
+        ctx.arc(320, 90, 50, Math.PI * 0.2, Math.PI * 1.6, false)
+        ctx.closePath()
+        ctx.lineWidth = 3
+        ctx.strokeStyle = '#985214'
+        ctx.stroke()
+        ctx.fillStyle = 'rgba(255,23,121,.3)'
+        ctx.fill()
+      }
+      const A2 = () => {
+        var x1 = parseInt($('x1').value)
+        var y1 = parseInt($('y1').value)
+        var r1 = parseInt($('r_1').value)
+        var x2 = parseInt($('x2').value)
+        var y2 = parseInt($('y2').value)
+        var r2 = parseInt($('r_2').value)
+        var id = $('a2')
+        var ctx = id.getContext('2d')
+        var g = ctx.createRadialGradient(x1, y1, r1, x2, y2, r2)
+        g.addColorStop(0, '#000')
+        g.addColorStop(0.5, '#FFF')
+        g.addColorStop(1, '#FD8BFE')
+        ctx.beginPath()
+        ctx.fillStyle = g
+        ctx.fillRect(0, 0, id.width, id.height)
+        ctx.closePath()
+        ctx.lineWidth = 2
+        ctx.strokeStyle = '#854621'
+        ctx.stroke()
+      }
+      const control = (a, b) => {
+        var obj = a
+        var i = obj.parentNode.children[0]
+        var v = parseInt(i.value)
+
+        b === 'i' ? v = v + 5 : v = v - 5
+        if (v < 0) {
+          v = 0
+        }
+        i.value = v
+        A2()
+      }
+      const T1 = a => {
+        var id = $('t1')
+        var ctx = id.getContext('2d')
+        ctx.beginPath()
+        ctx.clearRect(0, 0, id.width, id.height)
+        ctx.strokeStyle = '#746589'
+        ctx.fillStyle = '#ffa631'
+        ctx.strokeRect(100, 100, 100, 100)
+        ctx.fillRect(100, 100, 100, 100)
+        ctx.closePath()
+
+        switch (a) {
+          case 't':
+            var x = Math.floor(50 - 100 * Math.random())
+            var y = Math.floor(50 - 100 * Math.random())
+            ctx.translate(1, 1)
+            console.log(1)
+            break;
+          case 's':
+            var x = (1 - 2 * Math.random()).toFixed(2)
+            var y = (1 - 2 * Math.random()).toFixed(2)
+            ctx.scale(1.01, 1.01)
+            break;
+          case 'r':
+            var x = ((1-2*Math.random()).toFixed(2)* Math.PI)
+            ctx.rotate(0.01*Math.PI)
+            break;
+        }
       }
     </script>
   </body>

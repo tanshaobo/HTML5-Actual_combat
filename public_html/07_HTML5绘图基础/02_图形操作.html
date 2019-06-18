@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <a href="../index.html" class = 'go-index'>返回目录</a>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick="T1('t')">变换</button>
+          <button onclick="T1('s')">缩放</button>
+          <button onclick="T1('r')">旋转</button>
+        </legend>
+        <canvas id="t1" width="300px" height="300px"></canvas>
+      </fieldset>
+    </div>
+    <script>
+      var $ = i => {
+        return document.querySelector('#' + i)
+      }
+      const draw = () => {
+        var id = $('t1')
+        var ctx = id.getContext('2d')
+        ctx.beginPath()
+        ctx.strokeStyle = '#746589'
+        ctx.fillStyle = '#ffa631'
+        ctx.strokeRect(100, 100, 100, 100)
+        ctx.fillRect(100, 100, 100, 100)
+        ctx.closePath()
+      }
+//      const T1 = a => {
+//        switch (a) {
+//          case 't':
+//            var x = Math.floor(50 - 100 * Math.random())
+//            var y = Math.floor(50 - 100 * Math.random())
+//            ctx.translate(1, 1)
+//            console.log(1)
+//            break;
+//          case 's':
+//            var x = (1 - 2 * Math.random()).toFixed(2)
+//            var y = (1 - 2 * Math.random()).toFixed(2)
+//            ctx.scale(1.01, 1.01)
+//            break;
+//          case 'r':
+//            var x = ((1 - 2 * Math.random()).toFixed(2) * Math.PI)
+//            ctx.rotate(0.01 * Math.PI)
+//            break;
+//        }
+//      }
+    </script>
+  </body>
+</html>
