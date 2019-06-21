@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/common.css" rel="stylesheet" type="text/css"/>
+    <style>
+      div{display: inline-block;width:300px;height: 205px;vertical-align: top}
+    </style>
+  </head>
+  <body>
+    <a href="../index.html" class = 'go-index'>返回目录</a>
+    <hr>
+    <script>
+      const o = [
+        {name: 'source-over', intro: '新绘制覆盖旧绘制'},
+        {name: 'source-atop', intro: ''},
+        {name: 'source-in', intro: ''},
+        {name: 'source-out', intro: ''},
+        {name: 'copy', intro: '只显示新图形，其余部分透明'},
+        {name: 'darker', intro: '均显示，重叠部分色值相减'},
+        {name: 'destination-atop', intro: '显'},
+        {name: 'destination-in', intro: ''},
+        {name: 'destination-out', intro: ''},
+        {name: 'destination-over', intro: ''},
+        {name: 'lighter', intro: ''},
+        {name: 'xor', intro: ''}
+      ]
+      let str = ''
+      for (var i = 0; i < o.length; i++) {
+        str += '<div><fieldset><legend><button onclick="C(this)">' + o[i].name +
+                '</button></legend>' + o[i].intro + '<canvas width="260px" height="150px"></canvas></fieldset></div>'
+      }
+      var d = document.createElement('div')
+      d.style.width = 'auto'
+      d.style.height = 'auto'
+      d.innerHTML = str
+      document.body.appendChild(d)
+      const d_R = (ID) => {
+        var ctx = ID.getContext('2d')
+        ctx.fillStyle = '#ffa631'
+        ctx.strokeStyle = '#746589'
+        ctx.fillRect(20, 20, 100, 100)
+        ctx.strokeRect(20, 20, 100, 100)
+      }
+      const d_C = (ID) => {
+        var ctx = ID.getContext('2d')
+        ctx.fillStyle = '#478521'
+        ctx.strokeStyle = '#985214'
+        ctx.arc(120, 70, 50, 0, Math.PI * 2, true)
+        ctx.fill()
+        ctx.stroke()
+      }
+      const C = (obj) => {
+        var ID = obj.parentNode.nextElementSibling
+        var type = obj.innerText
+        var ctx = ID.getContext('2d')
+        d_R(ID)
+        ctx.globalCompositeOperation = type
+        d_C(ID)
+      }
+    </script>
+  </body>
+</html>

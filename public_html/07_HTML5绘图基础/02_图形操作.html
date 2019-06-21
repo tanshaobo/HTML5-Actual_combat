@@ -16,46 +16,60 @@ and open the template in the editor.
     <div>
       <fieldset>
         <legend>
-          <button onclick="T1('t')">变换</button>
-          <button onclick="T1('s')">缩放</button>
-          <button onclick="T1('r')">旋转</button>
+          <button onclick="T1('t')">图形操作 平移 translate()</button>
         </legend>
-        <canvas id="t1" width="300px" height="300px"></canvas>
+        <canvas id="t" width="300px" height="300px"></canvas>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick="T1('s')">图形操作 缩放 scare()</button>
+        </legend>
+        <canvas id="s" width="300px" height="300px"></canvas>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>
+          <button onclick="T1('r')">图形操作 旋转 rotate()</button>
+        </legend>
+        <canvas id="r" width="300px" height="300px"></canvas>
       </fieldset>
     </div>
     <script>
       var $ = i => {
         return document.querySelector('#' + i)
       }
-      const draw = () => {
-        var id = $('t1')
+      const draw = (ID) => {
+        var id = $(ID)
         var ctx = id.getContext('2d')
-        ctx.beginPath()
         ctx.strokeStyle = '#746589'
+        ctx.lineWidth = 2
         ctx.fillStyle = '#ffa631'
         ctx.strokeRect(100, 100, 100, 100)
         ctx.fillRect(100, 100, 100, 100)
-        ctx.closePath()
       }
-//      const T1 = a => {
-//        switch (a) {
-//          case 't':
-//            var x = Math.floor(50 - 100 * Math.random())
-//            var y = Math.floor(50 - 100 * Math.random())
-//            ctx.translate(1, 1)
-//            console.log(1)
-//            break;
-//          case 's':
-//            var x = (1 - 2 * Math.random()).toFixed(2)
-//            var y = (1 - 2 * Math.random()).toFixed(2)
-//            ctx.scale(1.01, 1.01)
-//            break;
-//          case 'r':
-//            var x = ((1 - 2 * Math.random()).toFixed(2) * Math.PI)
-//            ctx.rotate(0.01 * Math.PI)
-//            break;
-//        }
-//      }
+      const T1 = (ID) => {
+        var id = $(ID)
+        var ctx = id.getContext('2d')
+        switch (ID) {
+          case 't':
+            ctx.translate(-20, -20)
+            draw(ID)
+            ctx.translate(40, 40)
+            draw(ID)
+            break;
+          case 's':
+            ctx.scale(1.2, 1.2)
+            draw(ID)
+            break;
+          case 'r':
+            ctx.rotate(0.05 * Math.PI)
+            draw(ID)
+            break;
+        }
+      }
     </script>
   </body>
 </html>
